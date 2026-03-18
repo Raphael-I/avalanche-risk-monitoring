@@ -1,0 +1,2 @@
+"""Base weather connector interfaces."""
+

@@ -1,0 +1,34 @@
+app:
+  name: avalanche-risk-monitoring
+  environment: base
+  timezone: America/Toronto
+
+paths:
+  data_root: data
+  raw_data: data/raw
+  interim_data: data/interim
+  processed_data: data/processed
+  logs: logs
+
+monitoring:
+  region: default-region
+  forecast_horizon_hours: 72
+  refresh_interval_minutes: 60
+
+features:
+  enable_api: true
+  enable_scheduler: true
+  enable_alerting: false
+
+storage:
+  backend: local
+  local:
+    output_dir: data/processed
+
+integrations:
+  fabric:
+    enabled: false
+    mode: disabled
+    dataset_name: avalanche_risk_monitoring
+    staging_dir: data/interim/fabric_exports
+    token_env_var: MICROSOFT_FABRIC_TOKEN

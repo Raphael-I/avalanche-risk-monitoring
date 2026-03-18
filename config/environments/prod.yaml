@@ -1,0 +1,13 @@
+app:
+  environment: prod
+
+monitoring:
+  region: production-region
+  refresh_interval_minutes: 15
+
+features:
+  enable_alerting: true
+
+storage:
+  backend: cloud
+

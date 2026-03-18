@@ -1,0 +1,2 @@
+"""Source extraction pipeline stages."""
+

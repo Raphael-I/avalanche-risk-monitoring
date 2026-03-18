@@ -1,0 +1,2 @@
+"""Base snowpack connector interfaces."""
+

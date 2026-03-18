@@ -1,0 +1,2 @@
+"""Base bulletin connector interfaces."""
+

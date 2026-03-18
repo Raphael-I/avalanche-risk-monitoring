@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avalanche Risk Monitoring Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Avalanche Operations Console</p>
+        <p class="hero-copy">Simulated monitoring data for demonstration purposes only.</p>
+        <h1>Regional danger picture with live zone intelligence</h1>
+        <p class="hero-copy">
+          Operational view across monitored start zones, including current danger, contributing risk factors, sensor
+          movement, active alerts, and recent score history.
+        </p>
+      </div>
+      <div class="hero-actions">
+        <button id="refreshButton" class="primary-button">Run Monitoring Cycle</button>
+        <div class="stamp">
+          <span>System state</span>
+          <strong id="systemState">Loading...</strong>
+          <span class="stamp-secondary">Last refresh</span>
+          <strong id="lastRefresh">Loading...</strong>
+        </div>
+      </div>
+    </header>
+
+    <section class="overview-grid">
+      <article class="stat-card accent-red">
+        <span class="stat-label">Regional Headline</span>
+        <h2 id="headlineText">Loading...</h2>
+        <p id="headlineSubtext">Preparing summary...</p>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">Average Score</span>
+        <h3 id="averageScore">--</h3>
+        <p id="averageScoreNote">Across monitored zones</p>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">Highest Risk Zone</span>
+        <h3 id="highestZone">--</h3>
+        <p id="highestZoneLevel">Waiting for data</p>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">Active Alerts</span>
+        <h3 id="activeAlertCount">0</h3>
+        <p id="activeAlertNote">Threshold-driven alerts</p>
+      </article>
+    </section>
+
+    <main class="dashboard-grid">
+      <section class="panel zone-panel">
+        <div class="panel-header">
+          <div>
+            <p class="panel-kicker">Current danger by zone</p>
+            <h2>Zone risk board</h2>
+          </div>
+          <div class="legend">
+            <span class="legend-pill low">Low</span>
+            <span class="legend-pill moderate">Moderate</span>
+            <span class="legend-pill considerable">Considerable</span>
+            <span class="legend-pill high">High</span>
+            <span class="legend-pill extreme">Extreme</span>
+          </div>
+        </div>
+        <div id="zoneBoard" class="zone-board"></div>
+      </section>
+
+      <section class="panel insights-panel">
+        <div class="panel-header">
+          <div>
+            <p class="panel-kicker">Selected zone</p>
+            <h2 id="selectedZoneTitle">Choose a zone</h2>
+          </div>
+          <div id="selectedZoneBadge" class="selected-zone-badge">Awaiting selection</div>
+        </div>
+
+        <div class="chart-wrap">
+          <div class="chart-card">
+            <div class="chart-head">
+              <h3>Historical risk</h3>
+              <span id="riskTrendLabel">No data</span>
+            </div>
+            <svg id="riskChart" viewBox="0 0 560 220" class="chart-svg" aria-label="Risk score chart"></svg>
+          </div>
+          <div class="chart-card">
+            <div class="chart-head">
+              <h3>Sensor trends</h3>
+              <span>Snowfall, wind, weak layer</span>
+            </div>
+            <div id="sensorTrendGrid" class="sensor-trend-grid"></div>
+          </div>
+        </div>
+
+        <div class="factor-grid">
+          <div class="factor-card">
+            <h3>Primary risk factors</h3>
+            <div id="riskFactors"></div>
+          </div>
+          <div class="factor-card">
+            <h3>Historical analytics</h3>
+            <div id="analyticsDetail"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel alerts-panel">
+        <div class="panel-header">
+          <div>
+            <p class="panel-kicker">Escalations</p>
+            <h2>Active alerts</h2>
+          </div>
+        </div>
+        <div id="alertsList" class="alerts-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>

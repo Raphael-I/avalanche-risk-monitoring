@@ -1,0 +1,13 @@
+app:
+  environment: local
+
+monitoring:
+  region: development-region
+  refresh_interval_minutes: 30
+
+features:
+  enable_alerting: false
+
+storage:
+  backend: local
+

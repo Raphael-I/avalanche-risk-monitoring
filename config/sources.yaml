@@ -1,0 +1,17 @@
+sources:
+  weather:
+    enabled: true
+    provider: simulated-noaa-style-feed
+    timeout_seconds: 30
+  snowpack:
+    enabled: true
+    provider: simulated-snowpack-network
+    timeout_seconds: 30
+  terrain:
+    enabled: true
+    provider: static-terrain-catalog
+    timeout_seconds: 60
+  avalanche_bulletins:
+    enabled: true
+    provider: simulated-forecast-bulletin-feed
+    timeout_seconds: 30

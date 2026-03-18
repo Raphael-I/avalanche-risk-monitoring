@@ -1,0 +1,2 @@
+"""Avalanche risk monitoring package."""
+
