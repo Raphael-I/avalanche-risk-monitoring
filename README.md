@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Avalanche Risk Monitoring
 
 A local-first avalanche risk monitoring service built to demonstrate practical backend engineering, domain modeling, analytics, and product presentation in one portfolio project.
@@ -134,3 +135,6 @@ integrations:
 - Environmental inputs are currently simulated rather than sourced from live upstream feeds.
 - Runtime metrics are intentionally lightweight and in-memory to keep local execution frictionless.
 - Fabric API publishing is modeled as an optional integration boundary rather than a required deployment target.
+=======
+# Avalanche-risk-monitoring
+>>>>>>> 1d670e72f094287e71e2142a073ef8c4c352d990
