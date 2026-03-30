@@ -38,8 +38,11 @@ jobs:
         with:
           name: python-app
           path: |
-            .
-            !antenv/
+            src/**
+            config/**
+            requirements.txt
+            startup.sh
+            README.md
 
       # 🚫 Opting Out of Oryx Build
       # If you prefer to disable the Oryx build process during deployment, follow these steps:
