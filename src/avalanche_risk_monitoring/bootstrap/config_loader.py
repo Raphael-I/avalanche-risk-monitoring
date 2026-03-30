@@ -35,11 +35,14 @@ def load_settings(base_config_path: str = "config/base.yaml") -> AppSettings:
     processed_root = os.getenv("APP_PROCESSED_DATA_PATH", paths.get("processed_data", default_processed_root))
     bootstrap_history_runs = int(os.getenv("APP_BOOTSTRAP_HISTORY_RUNS", monitoring.get("bootstrap_history_runs", 12)))
     alert_score_threshold = int(os.getenv("APP_ALERT_SCORE_THRESHOLD", monitoring.get("alert_score_threshold", 65)))
+    environment = os.getenv("APP_ENVIRONMENT", app.get("environment", AppSettings().environment))
+    timezone = os.getenv("APP_TIMEZONE", app.get("timezone", AppSettings().timezone))
+    app_name = os.getenv("APP_NAME", app.get("name", AppSettings().app_name))
 
     return AppSettings(
-        app_name=app.get("name", AppSettings().app_name),
-        environment=app.get("environment", AppSettings().environment),
-        timezone=app.get("timezone", AppSettings().timezone),
+        app_name=app_name,
+        environment=environment,
+        timezone=timezone,
         database_path=str(Path(processed_root) / "avalanche_monitoring.db"),
         bootstrap_history_runs=bootstrap_history_runs,
         alert_score_threshold=alert_score_threshold,
