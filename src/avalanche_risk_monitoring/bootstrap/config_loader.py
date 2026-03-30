@@ -17,6 +17,12 @@ def load_settings(base_config_path: str = "config/base.yaml") -> AppSettings:
 
     config_path = Path(base_config_path)
     if not config_path.exists():
+        project_root = Path(__file__).resolve().parents[3]
+        candidate = project_root / base_config_path
+        if candidate.exists():
+            config_path = candidate
+
+    if not config_path.exists():
         return AppSettings()
 
     with config_path.open("r", encoding="utf-8") as file_handle:
