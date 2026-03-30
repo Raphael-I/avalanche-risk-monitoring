@@ -124,16 +124,12 @@ That command:
 
 ### 6. Set App Settings
 
-In the Azure Portal, open your Web App and go to:
-
-- `Configuration`
-- `Application settings`
-
-Add:
+In the Azure Portal, open your Web App and go to `Environment variables` and add:
 
 - `SCM_DO_BUILD_DURING_DEPLOYMENT = true`
+- `APP_BOOTSTRAP_HISTORY_RUNS = 0`
 
-This helps App Service install dependencies during deployment.
+These help App Service install dependencies during deployment and keep startup lightweight on the free tier.
 
 ## First Checks After Deployment
 
@@ -154,6 +150,12 @@ Examples:
 The app currently uses SQLite:
 
 - `data/processed/avalanche_monitoring.db`
+
+For Azure App Service, this project now automatically switches to:
+
+- `/home/site/data/processed/avalanche_monitoring.db`
+
+when App Service environment variables are present, so the database is created in a writable location.
 
 That is acceptable for a first cloud-hosting exercise, but it is not the long-term cloud database choice. The next upgrade after successful hosting is:
 
