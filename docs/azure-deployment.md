@@ -1,7 +1,7 @@
 # Deploying To Azure App Service
 
 This guide shows the first cloud deployment step for this project: hosting the current FastAPI app in Azure App Service.
-
+-
 ## What This Step Does
 
 - moves the API and dashboard off your local machine
